@@ -19,6 +19,14 @@
     } else {
       header.classList.remove('scrolled');
     }
+    var scrollTop = document.querySelector('.scroll-top');
+    if (scrollTop) {
+      if (window.scrollY > 400) {
+        scrollTop.classList.add('visible');
+      } else {
+        scrollTop.classList.remove('visible');
+      }
+    }
   }
 
   function toggleMenu() {
@@ -45,5 +53,67 @@
   if (navToggle && navLinks) {
     navToggle.addEventListener('click', toggleMenu);
     closeMenuOnLinkClick();
+  }
+
+  /* Scroll to top */
+  var scrollTopBtn = document.querySelector('.scroll-top');
+  if (scrollTopBtn) {
+    scrollTopBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  /* Lightbox */
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = lightbox && lightbox.querySelector('.lightbox-img');
+  var lightboxClose = lightbox && lightbox.querySelector('.lightbox-close');
+
+  function openLightbox(src, alt) {
+    if (!lightbox || !lightboxImg) return;
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || '';
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (lightbox && lightboxImg) {
+    document.querySelectorAll('[data-lightbox]').forEach(function (el) {
+      var img = el.querySelector('img');
+      if (img) {
+        el.addEventListener('click', function () {
+          openLightbox(img.src, img.alt);
+        });
+      }
+    });
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
+    });
+  }
+
+  /* Scroll reveal */
+  var revealEls = document.querySelectorAll('.reveal');
+  if (revealEls.length && 'IntersectionObserver' in window) {
+    var revealObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { rootMargin: '0px 0px -60px 0px', threshold: 0.1 });
+    revealEls.forEach(function (el) {
+      revealObs.observe(el);
+    });
   }
 })();

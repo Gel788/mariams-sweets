@@ -77,7 +77,7 @@
       </div>
     </section>
 
-    <section id="product" class="section product">
+    <section id="product" class="section product reveal">
       <div class="container">
         <p class="section-label">Продукт</p>
         <h2 class="section-title">Настоящее произведение искусства</h2>
@@ -107,7 +107,7 @@
       </div>
     </section>
 
-    <section id="about" class="section about">
+    <section id="about" class="section about reveal">
       <div class="container">
         <div class="about-inner">
           <div class="about-text">
@@ -126,21 +126,21 @@
       </div>
     </section>
 
-    <section id="gallery" class="section gallery">
+    <section id="gallery" class="section gallery reveal">
       <div class="container">
         <p class="section-label">Галерея</p>
         <h2 class="section-title">Вкус и красота в каждой детали</h2>
         <div class="gallery-grid">
-          <div class="gallery-item"><img src="фото/2026-02-28%2022.10.04.jpg" alt="Ягоды в шоколаде 1"></div>
-          <div class="gallery-item"><img src="фото/2026-02-28%2022.10.19.jpg" alt="Ягоды в шоколаде 2"></div>
-          <div class="gallery-item"><img src="фото/2026-02-28%2022.10.24.jpg" alt="Ягоды в шоколаде 3"></div>
-          <div class="gallery-item"><img src="фото/2026-02-28%2022.10.29.jpg" alt="Ягоды в шоколаде 4"></div>
-          <div class="gallery-item"><img src="фото/2026-03-03%2009.58.46.jpg" alt="Ягоды в шоколаде 5"></div>
+          <div class="gallery-item" data-lightbox><img src="фото/2026-02-28%2022.10.04.jpg" alt="Ягоды в шоколаде 1"></div>
+          <div class="gallery-item" data-lightbox><img src="фото/2026-02-28%2022.10.19.jpg" alt="Ягоды в шоколаде 2"></div>
+          <div class="gallery-item" data-lightbox><img src="фото/2026-02-28%2022.10.24.jpg" alt="Ягоды в шоколаде 3"></div>
+          <div class="gallery-item" data-lightbox><img src="фото/2026-02-28%2022.10.29.jpg" alt="Ягоды в шоколаде 4"></div>
+          <div class="gallery-item" data-lightbox><img src="фото/2026-03-03%2009.58.46.jpg" alt="Ягоды в шоколаде 5"></div>
         </div>
       </div>
     </section>
 
-    <section id="prices" class="section prices">
+    <section id="prices" class="section prices reveal">
       <div class="container">
         <p class="section-label">Прайс-лист</p>
         <h2 class="section-title">Цены</h2>
@@ -179,14 +179,14 @@
       </div>
     </section>
 
-    <section id="order" class="section order">
+    <section id="order" class="section order reveal">
       <div class="container">
         <p class="section-label">Заказ</p>
         <h2 class="section-title">Подарите незабываемые впечатления</h2>
         <p class="order-desc">Свяжитесь с нами, чтобы заказать ягоды в шоколаде для себя или в подарок.</p>
         <div class="order-actions">
           <a href="tel:+79160053642" class="btn btn-primary">Позвонить</a>
-          <a href="https://t.me/maryiamakopyan93" class="btn btn-secondary" target="_blank" rel="noopener">Написать в Telegram</a>
+          <a href="https://t.me/maryiamakopyan93?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D1%8F%D0%B3%D0%BE%D0%B4%D1%8B%20%D0%B2%20%D1%88%D0%BE%D0%BA%D0%BE%D0%BB%D0%B0%D0%B4%D0%B5%20%F0%9F%8D%93" class="btn btn-secondary" target="_blank" rel="noopener">Написать в Telegram</a>
         </div>
         <p class="order-note">Доставка по городу и оформление в подарочную упаковку.</p>
       </div>
@@ -200,6 +200,15 @@
       <p class="footer-copy">&copy; 2026 Mariam's Sweets</p>
     </div>
   </footer>
+
+  <button type="button" class="scroll-top" aria-label="Наверх" title="Наверх">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр фото" aria-hidden="true">
+    <button type="button" class="lightbox-close" aria-label="Закрыть">×</button>
+    <img class="lightbox-img" src="" alt="">
+  </div>
 
   <script src="script.js"></script>
 </body>
